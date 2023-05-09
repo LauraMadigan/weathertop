@@ -1,0 +1,85 @@
+#{if _station.latestReading() != null}
+<h1 class="title">
+  ${_station.name}
+</h1>
+<div class="columns">
+
+  <div class="column is-align-items-stretch">
+    <div class="card">
+      <div class="card-content">
+        <div class="content has-text-centered">
+          <h3>Location</h3>
+          ${_station.name} <br>
+          <i class="fa fa-location-dot"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="card-content">
+        <div class="content has-text-centered">
+          <h3>Weather</h3>
+          ${_station.latestReading().describeConditions()}<br>
+          <i class="fa-solid fa-cloud"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="card-content">
+        <div class="content has-text-centered">
+          <h3>Temperature</h3>
+          ${_station.latestReading().getTemperature()} °C<br>
+          ${_station.latestReading().convertToFahrenheit()} °F<br>
+          <i class="fa fa-temperature-three-quarters"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="card-content">
+        <div class="content has-text-centered">
+          <h3>Wind</h3>
+          ${_station.latestReading().getBeaufortScale()} bft <br>
+          ${_station.latestReading().getBeaufortLabel()} <br>
+          <i class="fa fa-wind"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="card-content">
+        <div class="content has-text-centered">
+          <h3>Pressure</h3>
+          ${_station.latestReading().getPressure()} hPa<br>
+          <i class="fa fa-gauge"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+#{listreadings station:_station/}
+
+#{/if}
+#{else}
+  <!-- Station has no readings -->
+  #{nostation station:_station/}
+#{/else}
+
+<div class="content-box">
+  #{addreading station:_station/}
+</div>
+
+
+
+
+
