@@ -107,10 +107,10 @@ public class Reading extends Model {
 
   }
 
-    public String getBeaufortLabel() {
-        if (this.windSpeed == 1) {
+    public String labelBeaufort() {
+        if (this.windSpeed == 0) {
             return "Calm";
-        } else if (this.windSpeed > 1 && this.windSpeed <= 5) {
+        } else if (this.windSpeed > 0 && this.windSpeed <= 5) {
             return "Light Air";
         } else if (this.windSpeed > 5 && this.windSpeed <= 11) {
             return "Light Breeze";

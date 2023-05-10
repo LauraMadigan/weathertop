@@ -1,20 +1,27 @@
 <form action="/stations/${_station.id}/addreading" method="POST">
   <div class="field">
     <h3 class="label">Add a new Reading:</h3>
-    <div class="control">
-      <label class="label">Code:</label>
-      <input class="input" placeholder="Code" type="text" name="code">
-      <label class="label">Temperature:</label>
-      <input class="input" placeholder="Temperature (C)" type="text" name="temperature">
-      <label class="label">Wind Speed:</label>
-      <input class="input" placeholder="Wind Speed (km/h)" type="text" name="windSpeed">
-      <label class="label">Wind Direction:</label>
-      <input class="input" placeholder="Wind Direction (degrees)" type="text" name="windDirection">
-      <label class="label">Pressure:</label>
-      <input class="input" placeholder="Pressure (Pa)" type="text" name="pressure">
+    <div class="columns control">
+      <div class="column">
+        <label class="label">Code:</label>
+        <input class="input" placeholder="100" type="number" min="100" max="800" name="code">
+        <label class="label">Temperature:</label>
+        <input class="input" placeholder="15°C" type="number" min="-50" max="50" name="temperature">
+      </div>
+      <div class="column">
+        <label class="label">Wind Speed:</label>
+        <input class="input" placeholder="20kmph" type="number" min="0" max="360" name="windSpeed">
+        <label class="label">Wind Direction:</label>
+        <input class="input" placeholder="220°" type="number" min="0" max="360" name="windDirection">
+      </div>
+      <div class="column">
+        <label class="label">Pressure:</label>
+        <input class="input" placeholder="1000hPa" min="900" max="1050" type="number" name="pressure">
+      </div>
     </div>
   </div>
   <div class="field mt-4">
     <button class="button">Add Reading</button>
   </div>
 </form>
+

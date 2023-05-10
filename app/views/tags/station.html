@@ -47,7 +47,9 @@
         <div class="content has-text-centered">
           <h3>Wind</h3>
           ${_station.latestReading().getBeaufortScale()} bft <br>
-          ${_station.latestReading().getBeaufortLabel()} <br>
+          ${_station.latestReading().labelBeaufort()} <br>
+          ${_station.labelWindDirection()} <br>
+          Feels like: ${_station.labelWindChill()} °C<br>
           <i class="fa fa-wind"></i>
         </div>
       </div>
