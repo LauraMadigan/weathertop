@@ -1,7 +1,7 @@
 #{extends 'main.html' /}
 #{set title:'Welcome' /}
 
-#{menu id:"start"/}
+#{welcomemenu id:"start"/}
 
 <div class="columns  is-vcentered">
     <div class="column is-half">
@@ -11,11 +11,9 @@
             </p>
             <p class="has-text-centered">
                 A small app to view weather station data.<br>
-                Add your own weather station on the Dashboard.<br>
-                Then add your readings and see the latest weather for that location.
+                <a href="/login">Log in</a> or <a href="/signup">sign up</a>.<br>
             </p>
         </div>
-
     </div>
     <div class="column is-half tile">
         <div class="box">

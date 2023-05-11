@@ -1,17 +1,45 @@
 #{extends 'main.html' /}
 #{set title:'Dashboard' /}
-
 #{menu id:"dashboard"/}
 
-#{list items:stations, as:'station'}
-<div class="content box">
-  <h1 class="title">
-    ${station.name}
-  </h1>
-  <a href="/stations/${station.id}" class="icon has-text-primary">
-    <i class="fas fa-folder"></i>
-  </a>
-</div>
-#{/list}
+<section class="box">
+<header class="title">
+  ${member.firstname} ${member.lastname}'s WeatherTop stations:
+</header>
+<table class="table is-striped is-fullwidth">
+  <thead>
+  <tr>
+    <th>Weather Station</th>
+    <th>View Station</th>
+  </tr>
+  </thead>
+  <tbody>
+  #{list items:stations, as:'station'}
+  <tr>
+    <td>${station.name}</td>
+    <td>
+      <a href="/stations/${station.id}" class="icon has-text-primary"> <i class="fas fa-folder"></i> </a>
+    </td>
+  </tr>
+  #{/list}
+  </tbody>
+</table>
+</section>
+
+
+
+<!--#{list items:stations, as:'station'}-->
+<!--<div class="content box">-->
+<!--&lt;!&ndash;  <header class="title">&ndash;&gt;-->
+<!--&lt;!&ndash;    ${member.firstname} ${member.lastname}'s Weathertop Stations:&ndash;&gt;-->
+<!--&lt;!&ndash;  </header>&ndash;&gt;-->
+<!--  <h1 class="title">-->
+<!--    ${station.name}-->
+<!--  </h1>-->
+<!--  <a href="/stations/${station.id}" class="icon has-text-primary">-->
+<!--    <i class="fas fa-folder"></i>-->
+<!--  </a>-->
+<!--</div>-->
+<!--#{/list}-->
 
 #{addstation station:station/}
