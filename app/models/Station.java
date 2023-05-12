@@ -8,7 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
-import utility.Utility;
+import utility.Calculation;
+import utility.StationAnalytics;
 
 @Entity
 public class Station extends Model
@@ -49,7 +50,7 @@ public class Station extends Model
         this.name = name;
     }
 
-    //method to get the latest readings from arraylist 'readings'
+    //method to get the latest readings for this station from arraylist 'readings'
     public Reading latestReading() {
         if (this.readings.size() == 0) {
             return null;
@@ -60,15 +61,39 @@ public class Station extends Model
 
     public String labelWindDirection() {
         Reading reading = this.latestReading();
-        String windDirectionLabel = Utility.labelWindDirection(reading.getWindDirection());
+        String windDirectionLabel = Calculation.labelWindDirection(reading.getWindDirection());
         return windDirectionLabel;
     }
 
     public int labelWindChill() {
         Reading reading = this.latestReading();
-        float windChill = Utility.calculateWindChill(reading.getTemperature(), reading.getWindSpeed());
+        float windChill = Calculation.windChill(reading.getTemperature(), reading.getWindSpeed());
         int roundedWindChill = Math.round(windChill);
         return roundedWindChill;
+    }
+
+    public float getMaxTemperature() {
+        return StationAnalytics.getMaxTemperature(this.readings);
+    }
+
+    public float getMaxPressure() {
+        return StationAnalytics.getMaxPressure(this.readings);
+    }
+
+    public float getMaxWindSpeed () {
+        return StationAnalytics.getMaxWindSpeed(this.readings);
+    }
+
+    public float getMinTemperature() {
+        return StationAnalytics.getMinTemperature(this.readings);
+    }
+
+    public float getMinPressure() {
+        return StationAnalytics.getMinPressure(this.readings);
+    }
+
+    public float getMinWindSpeed () {
+        return StationAnalytics.getMinWindSpeed(this.readings);
     }
 }
 
