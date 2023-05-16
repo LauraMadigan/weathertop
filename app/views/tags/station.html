@@ -24,7 +24,7 @@
         <div class="content has-text-centered">
           <h3>Weather</h3>
           ${_station.latestReading().describeConditions()}<br>
-          <i class="fa-solid fa-cloud"></i>
+          <i class="fa-solid ${_station.latestReading().selectIconForConditions()}"></i>
         </div>
       </div>
     </div>
