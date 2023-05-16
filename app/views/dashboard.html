@@ -3,8 +3,8 @@
 #{menu id:"dashboard"/}
 
 <section class="box">
-<header class="title">
-  ${member.firstname} ${member.lastname}'s WeatherTop stations:
+<header class="title is-capitalized">
+  ${member.firstname} ${member.lastname}'s WeatherTop stations
 </header>
 <table class="table is-striped is-fullwidth">
   <thead>
@@ -25,21 +25,5 @@
   </tbody>
 </table>
 </section>
-
-
-
-<!--#{list items:stations, as:'station'}-->
-<!--<div class="content box">-->
-<!--&lt;!&ndash;  <header class="title">&ndash;&gt;-->
-<!--&lt;!&ndash;    ${member.firstname} ${member.lastname}'s Weathertop Stations:&ndash;&gt;-->
-<!--&lt;!&ndash;  </header>&ndash;&gt;-->
-<!--  <h1 class="title">-->
-<!--    ${station.name}-->
-<!--  </h1>-->
-<!--  <a href="/stations/${station.id}" class="icon has-text-primary">-->
-<!--    <i class="fas fa-folder"></i>-->
-<!--  </a>-->
-<!--</div>-->
-<!--#{/list}-->
 
 #{addstation station:station/}
