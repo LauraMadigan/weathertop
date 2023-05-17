@@ -3,7 +3,7 @@
   ${_station.name}
 </h1>
 <div class="columns">
-
+<!--Location card-->
   <div class="column is-align-items-stretch">
     <div class="card">
       <div class="card-content">
@@ -19,7 +19,7 @@
       </div>
     </div>
   </div>
-
+<!--Weather conditions card-->
   <div class="column">
     <div class="card">
       <div class="card-content">
@@ -33,7 +33,7 @@
       </div>
     </div>
   </div>
-
+<!--Temperature card-->
   <div class="column">
     <div class="card">
       <div class="card-content">
@@ -46,11 +46,15 @@
           ${_station.latestReading().convertToFahrenheit()} °F<br>
           Min: ${_station.getMinTemperature()} °C<br>
           Max: ${_station.getMaxTemperature()} °C<br>
+          <br>
+          <span class="icon">
+          <i class="fa ${_station.selectTemperatureArrowTrend()} fa-2x"></i>
+          </span>
         </div>
       </div>
     </div>
   </div>
-
+<!--Wind card-->
   <div class="column">
     <div class="card">
       <div class="card-content">
@@ -65,11 +69,15 @@
           Min: ${_station.getMinWindSpeed()} kmph<br>
           Max: ${_station.getMaxWindSpeed()} kmph<br>
           Feels like: ${_station.labelWindChill()} °C<br>
+          <br>
+          <span class="icon">
+          <i class="fa ${_station.selectWindArrowTrend()} fa-2x"></i>
+          </span>
         </div>
       </div>
     </div>
   </div>
-
+<!--Air pressure card-->
   <div class="column">
     <div class="card">
       <div class="card-content">
@@ -81,11 +89,14 @@
           ${_station.latestReading().getPressure()} hPa<br>
           Min: ${_station.getMinPressure()} hPa<br>
           Max: ${_station.getMaxPressure()} hPa<br>
+          <br>
+          <span class="icon">
+          <i class="fa ${_station.selectPressureArrowTrend()} fa-2x"></i>
+          </span>
         </div>
       </div>
     </div>
   </div>
-
 </div>
 #{listreadings station:_station/}
 
