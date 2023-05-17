@@ -26,5 +26,17 @@ public class Dashboard extends Controller
     station.save();
     redirect ("/dashboard");
   }
+
+  public static void deleteStation (Long id)
+  {
+    Station station = Station.findById(id);
+    Logger.info ("Removing" + station);
+    Member member = Accounts.getLoggedInMember();
+    member.station.remove(station);
+    member.save();
+    station.delete();
+    redirect ("/dashboard");
+  }
+
 }
 
