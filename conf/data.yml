@@ -46,6 +46,54 @@ Reading(r6):
   windDirection: 100
   pressure: 1001
 
+Reading(r7):
+  timeStamp: 06/04/23 15:16:17
+  code: 200
+  temperature: 6
+  windSpeed: 3
+  windDirection: 100
+  pressure: 1001
+
+Reading(r8):
+  timeStamp: 05/04/23 14:15:16
+  code: 200
+  temperature: 5
+  windSpeed: 4
+  windDirection: 100
+  pressure: 1000
+
+Reading(r9):
+  timeStamp: 04/05/23 13:14:15
+  code: 200
+  temperature: 7.5
+  windSpeed: 2
+  windDirection: 120
+  pressure: 1000
+
+Reading(r10):
+  timeStamp: 03/04/23 12:13:14
+  code: 700
+  temperature: 8.0
+  windSpeed: 1
+  windDirection: 90
+  pressure: 999
+
+Reading(r11):
+  timeStamp: 02/03/23 11:12:13
+  code: 600
+  temperature: 6.0
+  windSpeed: 2
+  windDirection: 200
+  pressure: 1004
+
+Reading(r12):
+  timeStamp: 01/02/23 10:11:12
+  code: 800
+  temperature: 6.5
+  windSpeed: 1.5
+  windDirection: 220
+  pressure: 1005
+
 Station(s1):
   name: Tramore
   latitude: 52.160860
@@ -64,6 +112,24 @@ Station(s2):
     - r4
     - r6
 
+Station(s3):
+  name: Springfield
+  latitude: 39.9242
+  longitude: 83.8088
+  readings:
+    - r7
+    - r8
+    - r9
+
+Station(s4):
+  name: Shelbyville
+  latitude: 40.8814
+  longitude: 82.6618
+  readings:
+    - r10
+    - r11
+    - r12
+
 Member(m1):
   firstname: homer
   lastname: simpson
@@ -71,6 +137,7 @@ Member(m1):
   password: secret
   station:
     - s1
+    - s3
 
 Member(m2):
   firstname: marge
@@ -79,3 +146,4 @@ Member(m2):
   password: secret
   station:
     - s2
+    - s4
