@@ -1,4 +1,5 @@
 Reading(r1):
+  timeStamp: 01/02/23 10:11:12
   code: 800
   temperature: 6.5
   windSpeed: 1.5
@@ -6,6 +7,7 @@ Reading(r1):
   pressure: 1005
 
 Reading(r2):
+  timeStamp: 02/03/23 11:12:13
   code: 600
   temperature: 6.0
   windSpeed: 2
@@ -13,6 +15,7 @@ Reading(r2):
   pressure: 1004
 
 Reading(r3):
+  timeStamp: 03/04/23 12:13:14
   code: 700
   temperature: 8.0
   windSpeed: 1
@@ -20,6 +23,7 @@ Reading(r3):
   pressure: 999
 
 Reading(r4):
+  timeStamp: 04/05/23 13:14:15
   code: 200
   temperature: 7.5
   windSpeed: 2
@@ -27,6 +31,7 @@ Reading(r4):
   pressure: 1000
 
 Reading(r5):
+  timeStamp: 05/04/23 14:15:16
   code: 200
   temperature: 5
   windSpeed: 4
@@ -34,6 +39,7 @@ Reading(r5):
   pressure: 1000
 
 Reading(r6):
+  timeStamp: 06/04/23 15:16:17
   code: 200
   temperature: 6
   windSpeed: 3

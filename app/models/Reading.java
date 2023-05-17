@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 
 import play.db.jpa.Model;
 import utility.Icons;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class Reading extends Model {
@@ -13,14 +15,21 @@ public class Reading extends Model {
   public float windSpeed;
   public int pressure;
   public float windDirection;
+  public String timeStamp;
+
+
 
   public Reading(int code, float temperature, float windSpeed, float windDirection, int pressure) {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    this.timeStamp = formatter.format(LocalDateTime.now());
     this.code = code;
     this.temperature = temperature;
     this.windSpeed = windSpeed;
     this.windDirection = windDirection;
     this.pressure = pressure;
   }
+
+  public String getTimeStamp() {return timeStamp;}
 
   public int getCode() {
     return code;
@@ -40,6 +49,10 @@ public class Reading extends Model {
 
   public float getWindDirection() {
     return windDirection;
+  }
+
+  public void setTimeStamp(String timeStamp) {
+    this.timeStamp = timeStamp;
   }
 
   public float convertToFahrenheit() {
