@@ -278,6 +278,5 @@ public class Station extends Model
         }
         return "";
     }
-
 }
 
