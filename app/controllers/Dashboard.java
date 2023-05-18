@@ -1,6 +1,6 @@
 package controllers;
 
-import java.util.List;
+import java.util.*;
 
 import models.Member;
 import models.Station;
@@ -14,6 +14,7 @@ public class Dashboard extends Controller
     Logger.info("Rendering Dashboard");
     Member member = Accounts.getLoggedInMember();
     List<Station> stations = member.station;
+    Collections.sort(stations, (o1, o2) -> o1.getName().compareTo(o2.getName()));
     render ("dashboard.html", member, stations);
   }
 
