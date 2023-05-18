@@ -13,6 +13,7 @@ public class Dashboard extends Controller
   {
     Logger.info("Rendering Dashboard");
     Member member = Accounts.getLoggedInMember();
+    Logger.info ("Member:" + member.email);
     List<Station> stations = member.station;
     Collections.sort(stations, (o1, o2) -> o1.getName().compareTo(o2.getName()));
     render ("dashboard.html", member, stations);
@@ -38,6 +39,5 @@ public class Dashboard extends Controller
     station.delete();
     redirect ("/dashboard");
   }
-
 }
 

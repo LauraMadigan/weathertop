@@ -1,0 +1,40 @@
+#{extends 'main.html' /}
+#{set title:'Profile' /}
+#{menu id:"profile"/}
+<section class="content box">
+  <div class="columns">
+    <div class="column is-half">
+      <form action="/profile/updateDetails" method="POST">
+        <h3 class="subtitle is-capitalized">${member.firstname}'s Profile</h3>
+        <div class="field is-horizontal field-body">
+          <div class="field">
+            <label class="label">First Name</label>
+            <p class="control is-expanded">
+              <input class="input" type="text" placeholder="First Name" name="firstname" value="${member.firstname}">
+            </p>
+          </div>
+          <div class="field">
+            <label class="label">Last Name</label>
+            <p class="control">
+              <input class="input" type="text" placeholder="Last Name" name="lastname" value="${member.lastname}">
+            </p>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Email</label>
+          <input class="input" placeholder="Email" name="email" value="${member.email}">
+        </div>
+        <div class="field">
+          <label class="label">Password</label>
+          <input class="input" type="password" name="password" value="${member.password}">
+        </div>
+        <button class="button">Update Details</button>
+      </form>
+    </div>
+    <div class="column is-half">
+      <figure class="image">
+        <img src="/public/images/bluesky.jpg">
+      </figure>
+    </div>
+  </div>
+</section>

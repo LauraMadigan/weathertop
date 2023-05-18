@@ -1,8 +1,12 @@
 package controllers;
 
 import models.Member;
+import models.Station;
 import play.Logger;
 import play.mvc.Controller;
+
+import java.util.Collections;
+import java.util.List;
 
 public class Accounts extends Controller {
   public static void signup() {
@@ -23,7 +27,6 @@ public class Accounts extends Controller {
   public static void authenticate(String email, String password)
   {
     Logger.info("Attempting to authenticate with " + email + ":" + password);
-
     Member member = Member.findByEmail(email);
     if ((member != null) && (member.checkPassword(password) == true)) {
       Logger.info("Authentication successful");
@@ -51,4 +54,23 @@ public class Accounts extends Controller {
     }
     return member;
   }
+
+  public static void profile()
+  {
+    Logger.info("Rendering Accounts");
+    Member member = getLoggedInMember();
+    render ("profile.html", member);
+  }
+
+  public static void updateDetails(String firstname, String lastname, String email, String password) {
+    Member member = getLoggedInMember();
+    member.firstname = firstname;
+    member.lastname = lastname;
+    member.email = email;
+    member.password = password;
+    Logger.info("Updating User Details" + firstname + lastname + email);
+    member.save();
+    redirect("/profile");
+  }
+
 }
