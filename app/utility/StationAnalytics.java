@@ -63,6 +63,138 @@ public class StationAnalytics {
     return minPressure;
   }
 
+  //    Weather trend analytic methods
+      public static boolean checkWindAscending(List<Reading> readings)
+      {
+          if(readings.size() < 3) //there are not enough readings to do this
+          {
+              return false;
+          }
+
+          int lastReading = readings.size() -1;
+          int secondLastReading = readings.size() -2;
+          int thirdLastReading = readings.size() -3;
+
+          float lastWindSpeed = readings.get(lastReading).getWindSpeed();
+          float secondLastWindSpeed = readings.get(secondLastReading).getWindSpeed();
+          float thirdLastWindSpeed = readings.get(thirdLastReading).getWindSpeed();
+
+          if ((lastWindSpeed > secondLastWindSpeed) && (secondLastWindSpeed > thirdLastWindSpeed))
+          {
+              return true;    //wind speed is increasing
+          }
+          else return false;  //wind speed is not increasing
+      }
+
+  public static boolean checkWindDescending(List<Reading> readings)
+      {
+          if(readings.size() < 3) //there are not enough readings to do this
+          {
+              return false;
+          }
+
+          int lastReading = readings.size() -1;
+          int secondLastReading = readings.size() -2;
+          int thirdLastReading = readings.size() -3;
+
+          float lastWindSpeed = readings.get(lastReading).getWindSpeed();
+          float secondLastWindSpeed = readings.get(secondLastReading).getWindSpeed();
+          float thirdLastWindSpeed = readings.get(thirdLastReading).getWindSpeed();
+
+          if ((lastWindSpeed < secondLastWindSpeed) && (secondLastWindSpeed < thirdLastWindSpeed))
+          {
+              return true;    //wind speed is decreasing
+          }
+          else return false;  //wind speed is not decreasing
+      }
+
+  public static boolean checkTemperatureAscending(List<Reading> readings)
+  {
+      if(readings.size() < 3) //there are not enough readings to do this
+      {
+          return false;
+      }
+
+      int lastReading = readings.size() -1;
+      int secondLastReading = readings.size() -2;
+      int thirdLastReading = readings.size() -3;
+
+      float lastTemperature = readings.get(lastReading).getTemperature();
+      float secondLastTemperature = readings.get(secondLastReading).getTemperature();
+      float thirdLastTemperature = readings.get(thirdLastReading).getTemperature();
+
+      if ((lastTemperature > secondLastTemperature) && (secondLastTemperature > thirdLastTemperature))
+      {
+          return true;    //temperature is increasing
+      }
+      else return false;  //temperature is not increasing
+  }
+
+  public static boolean checkTemperatureDescending(List<Reading> readings)
+  {
+      if(readings.size() < 3) //there are not enough readings to do this
+      {
+          return false;
+      }
+
+      int lastReading = readings.size() -1;
+      int secondLastReading = readings.size() -2;
+      int thirdLastReading = readings.size() -3;
+
+      float lastTemperature = readings.get(lastReading).getTemperature();
+      float secondLastTemperature = readings.get(secondLastReading).getTemperature();
+      float thirdLastTemperature = readings.get(thirdLastReading).getTemperature();
+
+      if ((lastTemperature < secondLastTemperature) && (secondLastTemperature < thirdLastTemperature))
+      {
+          return true;    //temperature is decreasing
+      }
+      else return false;  //temperature is not decreasing
+  }
+
+  public static boolean checkPressureAscending(List<Reading> readings)
+  {
+      if(readings.size() < 3) //there are not enough readings to do this
+      {
+          return false;
+      }
+
+      int lastReading = readings.size() -1;
+      int secondLastReading = readings.size() -2;
+      int thirdLastReading = readings.size() -3;
+
+      float lastPressure = readings.get(lastReading).getPressure();
+      float secondLastPressure = readings.get(secondLastReading).getPressure();
+      float thirdLastPressure = readings.get(thirdLastReading).getPressure();
+
+      if ((lastPressure > secondLastPressure) && (secondLastPressure > thirdLastPressure))
+      {
+          return true;    //pressure is increasing
+      }
+      else return false;  //pressure is not increasing
+  }
+
+  public static boolean checkPressureDescending(List<Reading> readings)
+  {
+      if (readings.size() < 3) //there are not enough readings to do this
+      {
+          return false;
+      }
+
+      int lastReading = readings.size() -1;
+      int secondLastReading = readings.size() -2;
+      int thirdLastReading = readings.size() -3;
+
+      float lastPressure = readings.get(lastReading).getPressure();
+      float secondLastPressure = readings.get(secondLastReading).getPressure();
+      float thirdLastPressure = readings.get(thirdLastReading).getPressure();
+
+      if ((lastPressure < secondLastPressure) && (secondLastPressure < thirdLastPressure))
+      {
+          return true;    //pressure is decreasing
+      }
+      else return false;  //pressure is not decreasing
+  }
 }
 
 
