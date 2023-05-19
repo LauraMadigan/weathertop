@@ -1,23 +1,38 @@
 #{extends 'main.html' /}
-#{set title:'Welcome' /}
+#{set title:'WeatherTop' /}
 #{welcomemenu id:"start"/}
-<div class="columns  is-vcentered">
-  <div class="column is-half">
-    <div>
-      <p class="title has-text-centered">
-        Weather App
+
+<section class="content box">
+  <div class="columns">
+    <div class="column is-half">
+      <h2 class="title has-text-left">
+        Welcome to Weathertop
+      </h2>
+      <p class="has-text-left">
+        This is the companion app for the WeatherTop consumer weather station kits.
+        This app allows you to:
       </p>
-      <p class="has-text-centered">
-        A small app to view weather station data.<br>
-        <a href="/login">Log in</a> or <a href="/signup">sign up</a>.<br>
+      <ul>
+        <li>Access your collection of WeatherTop stations</li>
+        <li>Quickly view the latest readings for each station</li>
+        <li>See weather trends at a glance</li>
+        <li>Add or remove stations in your collection</li>
+        <li>Add or remove readings from your stations</li>
+        <li>Edit your profile details</li>
+      </ul>
+      <p class="has-text-left">
+        Please sign up or log in to use the WeatherTop app.
+      </p>
+      <br>
+      <p class="has-text-left">
+        <a class="button" href="/signup">Sign Up</a>
+        <a class="button" href="/login">Log in</a>
       </p>
     </div>
-  </div>
-  <div class="column is-half tile">
-    <div class="box">
+    <div class="column is-half">
       <figure class="image">
-        <img src="/public/images/weather-station.png">
+        <img src="/public/images/weather-station.png" alt="weather station">
       </figure>
     </div>
   </div>
-</div>
+</section>
