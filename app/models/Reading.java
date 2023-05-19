@@ -3,9 +3,11 @@ package models;
 import javax.persistence.Entity;
 
 import play.db.jpa.Model;
+import utility.Calculation;
 import utility.Icons;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 
 @Entity
 public class Reading extends Model {
@@ -60,40 +62,28 @@ public class Reading extends Model {
   }
 
   public String describeConditions() {
-    String description;
-    switch (this.code) {
-      case 100:
-        description = "Clear";
-        break;
-      case 200:
-        description = "Partial clouds";
-        break;
-      case 300:
-        description = "Cloudy";
-        break;
-      case 400:
-        description = "Light showers";
-        break;
-      case 500:
-        description = "Heavy showers";
-        break;
-      case 600:
-        description = "Rain";
-        break;
-      case 700:
-        description = "Snow";
-        break;
-      case 800:
-        description = "Thunder";
-        break;
-      default:
-        description = "Unknown";
-    }
+    HashMap<Integer, String> conditionsHashMap = new HashMap<Integer, String>();
+    conditionsHashMap.put(100, "Clear");
+    conditionsHashMap.put(200, "Partial clouds");
+    conditionsHashMap.put(300, "Cloudy");
+    conditionsHashMap.put(400, "Light showers");
+    conditionsHashMap.put(500, "Heavy showers");
+    conditionsHashMap.put(600, "Rain");
+    conditionsHashMap.put(700, "Snow");
+    conditionsHashMap.put(800, "Thunder");
+
+    String description = conditionsHashMap.getOrDefault(code, "Unknown");
+
     return description;
   }
 
   public String selectIconForConditions() {
     return Icons.selectIconForConditions(this.code);
+  }
+
+  public String selectIconForWindDirection() {
+    String windDirectionLabel = Calculation.labelWindDirection(this.getWindDirection());
+    return Icons.selectIconForWindDirection(windDirectionLabel);
   }
 
   public int getBeaufortScale() {

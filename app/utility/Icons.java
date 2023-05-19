@@ -1,36 +1,43 @@
 package utility;
 
+import java.util.HashMap;
+
 public class Icons {
   public static String selectIconForConditions(int code) {
-    String icon;
-    switch (code) {
-      case 100:
-        icon = "fa-sun"; // Clear
-        break;
-      case 200:
-        icon = "fa-cloud-sun"; // Partial Clouds
-        break;
-      case 300:
-        icon = "fa-cloud"; // Cloudy
-        break;
-      case 400:
-        icon = "fa-cloud-sun-rain"; // Showers
-        break;
-      case 500:
-        icon = "fa-cloud-showers-heavy"; // Heavy Showers
-        break;
-      case 600:
-        icon = "fa-cloud-rain"; // Rain
-        break;
-      case 700:
-        icon = "fa-snowflake"; // Snow
-        break;
-      case 800:
-        icon = "fa-cloud-bolt"; // Thunder
-        break;
-      default:
-        icon = "Unknown"; // Unknown
-    }
+    HashMap<Integer, String> iconMap = new HashMap<>();
+    iconMap.put(100, "fa-sun");
+    iconMap.put(200, "fa-cloud-sun");
+    iconMap.put(300, "fa-cloud");
+    iconMap.put(400, "fa-cloud-sun-rain");
+    iconMap.put(500, "fa-cloud-showers-heavy");
+    iconMap.put(600, "fa-cloud-rain");
+    iconMap.put(700, "fa-snowflake");
+    iconMap.put(800, "fa-cloud-bolt");
+
+    String icon = iconMap.getOrDefault(code, "Unknown");
+    return icon;
+  }
+
+  public static String selectIconForWindDirection(String direction) {
+    HashMap<String, String> iconMap = new HashMap<>();
+    iconMap.put("N", "wi-towards-n");
+    iconMap.put("NNE", "wi-towards-nne");
+    iconMap.put("NE", "wi-towards-ne");
+    iconMap.put("ENE", "wi-towards-ene");
+    iconMap.put("E", "wi-towards-e");
+    iconMap.put("ESE", "wi-towards-ese");
+    iconMap.put("SE", "wi-towards-se");
+    iconMap.put("SSE", "wi-towards-sse");
+    iconMap.put("S", "wi-towards-s");
+    iconMap.put("SSW", "wi-towards-ssw");
+    iconMap.put("SW", "wi-towards-sw");
+    iconMap.put("WSW", "wi-towards-wsw");
+    iconMap.put("W", "wi-towards-w");
+    iconMap.put("WNW", "wi-towards-wnw");
+    iconMap.put("NW", "wi-towards-wi-towards-nw");
+    iconMap.put("NNW", "wi-towards-nnw");
+
+    String icon = iconMap.getOrDefault(direction, "Unknown");
     return icon;
   }
 }
