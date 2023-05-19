@@ -1,13 +1,13 @@
 Reading(r1):
-  timeStamp: 01/02/23 10:11:12
+  timeStamp: 19/01/21 08:31:00
   code: 800
-  temperature: 6.5
-  windSpeed: 1.5
+  temperature: 0.5
+  windSpeed: 3.5
   windDirection: 220
-  pressure: 1005
+  pressure: 1001
 
 Reading(r2):
-  timeStamp: 02/03/23 11:12:13
+  timeStamp: 20/01/21 09:34:00
   code: 600
   temperature: 6.0
   windSpeed: 2
@@ -15,84 +15,20 @@ Reading(r2):
   pressure: 1004
 
 Reading(r3):
-  timeStamp: 03/04/23 12:13:14
+  timeStamp: 20/01/21 10:31:00
   code: 700
   temperature: 8.0
   windSpeed: 1
   windDirection: 90
-  pressure: 999
+  pressure: 1000
 
 Reading(r4):
-  timeStamp: 04/05/23 13:14:15
+  timeStamp: 19/01/21 09:31:00
   code: 200
-  temperature: 7.5
-  windSpeed: 2
+  temperature: 0.5
+  windSpeed: 3.5
   windDirection: 120
-  pressure: 1000
-
-Reading(r5):
-  timeStamp: 05/04/23 14:15:16
-  code: 200
-  temperature: 5
-  windSpeed: 4
-  windDirection: 100
-  pressure: 1000
-
-Reading(r6):
-  timeStamp: 06/04/23 15:16:17
-  code: 200
-  temperature: 6
-  windSpeed: 3
-  windDirection: 100
-  pressure: 1001
-
-Reading(r7):
-  timeStamp: 06/04/23 15:16:17
-  code: 200
-  temperature: 6
-  windSpeed: 3
-  windDirection: 100
-  pressure: 1001
-
-Reading(r8):
-  timeStamp: 05/04/23 14:15:16
-  code: 200
-  temperature: 5
-  windSpeed: 4
-  windDirection: 100
-  pressure: 1000
-
-Reading(r9):
-  timeStamp: 04/05/23 13:14:15
-  code: 200
-  temperature: 7.5
-  windSpeed: 2
-  windDirection: 120
-  pressure: 1000
-
-Reading(r10):
-  timeStamp: 03/04/23 12:13:14
-  code: 700
-  temperature: 8.0
-  windSpeed: 1
-  windDirection: 90
   pressure: 999
-
-Reading(r11):
-  timeStamp: 02/03/23 11:12:13
-  code: 600
-  temperature: 6.0
-  windSpeed: 2
-  windDirection: 200
-  pressure: 1004
-
-Reading(r12):
-  timeStamp: 01/02/23 10:11:12
-  code: 800
-  temperature: 6.5
-  windSpeed: 1.5
-  windDirection: 220
-  pressure: 1005
 
 Station(s1):
   name: Tramore
@@ -101,7 +37,6 @@ Station(s1):
   readings:
     - r1
     - r2
-    - r5
 
 Station(s2):
   name: Dunmore
@@ -110,25 +45,6 @@ Station(s2):
   readings:
     - r3
     - r4
-    - r6
-
-Station(s3):
-  name: Springfield
-  latitude: 39.9242
-  longitude: 83.8088
-  readings:
-    - r7
-    - r8
-    - r9
-
-Station(s4):
-  name: Shelbyville
-  latitude: 40.8814
-  longitude: 82.6618
-  readings:
-    - r10
-    - r11
-    - r12
 
 Member(m1):
   firstname: homer
@@ -137,13 +53,4 @@ Member(m1):
   password: secret
   station:
     - s1
-    - s3
-
-Member(m2):
-  firstname: marge
-  lastname: simpson
-  email: marge@simpson.com
-  password: secret
-  station:
     - s2
-    - s4
