@@ -40,4 +40,20 @@ public class Icons {
     String icon = iconMap.getOrDefault(direction, "Unknown");
     return icon;
   }
+
+  public static String selectIconForTemperature(float temperature) {
+    if (temperature < 0) {
+      return "fa-temperature-empty";
+    } else if (temperature >= 0 && temperature <= 10) {
+      return "fa-temperature-quarter";
+    } else if (temperature >= 10 && temperature <= 20) {
+      return "fa-temperature-half";
+    } else if (temperature >= 20 && temperature <= 30) {
+      return "fa-temperature-three-quarters";
+    } else if (temperature >= 30 && temperature <= 40) {
+      return "fa-temperature-full";
+    } else {
+      return "fa-temperature-three-quarters"; // Default
+    }
+  }
 }

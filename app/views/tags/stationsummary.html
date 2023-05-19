@@ -38,7 +38,7 @@
       <div class="card-content">
         <div class="content has-text-centered">
           <span class="icon">
-            <i class="fa fa-temperature-three-quarters fa-2x"></i>
+            <i class="fa ${_station.latestReading().selectIconForTemperature()} fa-2x"></i>
           </span>
           <h3>Temperature</h3>
           ${_station.latestReading().getTemperature()} °C<br>
@@ -59,7 +59,7 @@
       <div class="card-content">
         <div class="content has-text-centered">
           <span class="icon">
-            <i class="fa fa-wind fa-2x"></i>
+            <i class="wi wi-wind ${_station.latestReading().selectIconForWindDirection()} fa-3x"></i>
           </span>
           <h3>Wind</h3>
           ${_station.latestReading().getBeaufortScale()} bft <br>

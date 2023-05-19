@@ -13,6 +13,7 @@ import java.util.HashMap;
 public class Reading extends Model {
 
   public int code;
+
   public float temperature;
   public float windSpeed;
   public int pressure;
@@ -79,6 +80,10 @@ public class Reading extends Model {
 
   public String selectIconForConditions() {
     return Icons.selectIconForConditions(this.code);
+  }
+
+  public String selectIconForTemperature() {
+    return Icons.selectIconForTemperature(this.temperature);
   }
 
   public String selectIconForWindDirection() {
