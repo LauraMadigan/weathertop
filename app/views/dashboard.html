@@ -20,11 +20,11 @@ ${member.firstname} ${member.lastname}'s Dashboard
     #{noreadings station:station/}
   #{/else}
 
-  <a href="/stations/${station.id}" class="icon has-text-primary">
-    <i class="fas fa-folder"></i>
+  <a href="/stations/${station.id}" class="button is-normal is-responsive">
+    <i class="fas fa-folder"></i>&nbsp; Open
   </a>
-  <a href="/dashboard/deleteStation/${station.id}" class="icon has-text-danger">
-    <i class="fas fa-trash"></i>
+  <a href="/dashboard/deleteStation/${station.id}" class="button is-normal is-responsive">
+    <i class="fas fa-trash"></i>&nbsp; Delete
   </a>
 #{/list}
 

@@ -3,6 +3,7 @@ package utility;
 import java.util.HashMap;
 
 public class Icons {
+
   public static String selectIconForConditions(int code) {
     HashMap<Integer, String> iconMap = new HashMap<>();
     iconMap.put(100, "fa-sun");
