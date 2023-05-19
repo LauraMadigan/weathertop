@@ -131,7 +131,6 @@ public class Station extends Model
         return "";
     }
 
-
     public String selectPressureArrowTrend()
     {
         boolean descending = StationAnalytics.checkPressureDescending(this.readings);
