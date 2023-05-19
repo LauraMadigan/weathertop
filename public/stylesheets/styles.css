@@ -38,3 +38,12 @@ a.navbar-item:hover {
 .button:hover {
     color: white;
 }
+
+.footer {
+    background-color: #6CC5C6;
+}
+
+.fa-arrow-down, .fa-arrow-up {
+    position: absolute;
+    bottom: 1em;
+}
