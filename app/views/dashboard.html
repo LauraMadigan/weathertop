@@ -1,19 +1,22 @@
 #{extends 'main.html' /}
 #{set title:'Dashboard' /}
-#{menu id:"dashboard"/}
+#{logged_in_menu id:"dashboard"/}
 
+<div class="content box">
 <header class="is-size-4 title is-capitalized">
 ${member.firstname} ${member.lastname}'s WeatherTop stations
 </header>
 
-#{list items:stations, as:'station'}
-<div class="box">
+#{if stations.size() == 0}
+#{nostations /}
+#{/if}
 
+#{list items:stations, as:'station'}
   #{if station.latestReading() != null}
     #{stationsummary station:station/}
   #{/if}
   #{else}
-    <!-- Station has no readings -->
+    <!-- No Stations -->
     #{noreadings station:station/}
   #{/else}
 
@@ -23,7 +26,7 @@ ${member.firstname} ${member.lastname}'s WeatherTop stations
   <a href="/dashboard/deleteStation/${station.id}" class="icon has-text-danger">
     <i class="fas fa-trash"></i>
   </a>
-</div>
 #{/list}
 
 #{addstation station:station/}
+</div>
