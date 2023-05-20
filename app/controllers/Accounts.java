@@ -1,12 +1,8 @@
 package controllers;
 
 import models.Member;
-import models.Station;
 import play.Logger;
 import play.mvc.Controller;
-
-import java.util.Collections;
-import java.util.List;
 
 public class Accounts extends Controller {
   public static void signup() {
@@ -19,49 +15,50 @@ public class Accounts extends Controller {
 
   public static void register(String firstname, String lastname, String email, String password) {
     Logger.info("Registering new user " + email);
-    Member member = new Member(firstname, lastname, email, password);
-    member.save();
-    redirect("/login");
+    Member member = new Member(firstname, lastname, email, password); //create a new member object from the passed in data
+    member.save();                                                    //save them in the database
+    redirect("/login");                                           //redirect to login page
   }
 
-  public static void authenticate(String email, String password)
-  {
+  public static void authenticate(String email, String password) {
     Logger.info("Attempting to authenticate with " + email + ":" + password);
-    Member member = Member.findByEmail(email);
-    if ((member != null) && (member.checkPassword(password) == true)) {
+    Member member = Member.findByEmail(email);  //finds a member by their email address
+    if ((member != null) && (member.checkPassword(password) == true)) {   //if there's a member and the password matches
       Logger.info("Authentication successful");
-      session.put("logged_in_Memberid", member.id);
-      redirect ("/dashboard");
+      session.put("logged_in_Memberid", member.id);   //put that member id into the session
+      redirect("/dashboard");                    //redirect them to the dashboard
     } else {
-      Logger.info("Authentication failed");
+      Logger.info("Authentication failed");   //otherwise redirect them to the login page
       redirect("/login");
     }
   }
-  public static void logout()
-  {
-    session.clear();
-    redirect ("/");
+
+  public static void logout() {
+    session.clear();        //clears the session
+    redirect("/");     //redirects to homepage
   }
 
-  public static Member getLoggedInMember()
-  {
+  public static Member getLoggedInMember() {
     Member member = null;
-    if (session.contains("logged_in_Memberid")) {
-      String memberId = session.get("logged_in_Memberid");
-      member = Member.findById(Long.parseLong(memberId));
+    if (session.contains("logged_in_Memberid")) {   //look inside session object to see if a member is logged in
+      String memberId = session.get("logged_in_Memberid");  //and if there is a member id
+      member = Member.findById(Long.parseLong(memberId));   //use that id to look them up in the database
     } else {
-      login();
+      login();                                              //otherwise, show the login page
     }
-    return member;
+    return member;                                          //return the member object
   }
 
-  public static void profile()
-  {
-    Logger.info("Rendering Accounts");
+  //gets the profile of the current logged in member
+  //and renders the profile view with this member
+  public static void getProfile() {
+    Logger.info("Rendering profile");
     Member member = getLoggedInMember();
-    render ("profile.html", member);
+    render("profile.html", member);
   }
 
+  //  updates member details by reassigning the values that the user inputs
+//  to that member's fields, and then saves the updated model
   public static void updateDetails(String firstname, String lastname, String email, String password) {
     Member member = getLoggedInMember();
     member.firstname = firstname;
@@ -72,5 +69,4 @@ public class Accounts extends Controller {
     member.save();
     redirect("/profile");
   }
-
 }

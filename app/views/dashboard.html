@@ -3,12 +3,12 @@
 #{logged_in_menu id:"dashboard"/}
 
 <div class="content box">
-<h1 class="title is-capitalized">
-${member.firstname} ${member.lastname}'s Dashboard
-</h1>
+  <h1 class="title is-capitalized">
+  ${member.firstname} ${member.lastname}'s Dashboard
+  </h1>
 
 #{if stations.size() == 0}
-#{nostations /}
+  #{nostations /}
 #{/if}
 
 #{list items:stations, as:'station'}

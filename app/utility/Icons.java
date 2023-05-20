@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 public class Icons {
 
+
+  //returns the appropriate icon for a given weather code
   public static String selectIconForConditions(int code) {
     HashMap<Integer, String> iconMap = new HashMap<>();
     iconMap.put(100, "fa-sun");
@@ -19,6 +21,7 @@ public class Icons {
     return icon;
   }
 
+  //returns appropriate wind compass icon for a given wind direction
   public static String selectIconForWindDirection(String direction) {
     HashMap<String, String> iconMap = new HashMap<>();
     iconMap.put("N", "wi-towards-n");
@@ -42,6 +45,7 @@ public class Icons {
     return icon;
   }
 
+  //returns the appropriate thermometer icon for a given temperature
   public static String selectIconForTemperature(float temperature) {
     if (temperature < 0) {
       return "fa-temperature-empty";

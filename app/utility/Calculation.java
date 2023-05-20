@@ -2,8 +2,9 @@ package utility;
 
 public class Calculation {
 
+  //calculates wind chill
   public static float windChill(float temperature, float windSpeed) {
-    float windChill = (float) (13.12 + (0.6215*temperature) - 11.37 * (Math.pow(windSpeed, 0.16)) + 0.3965 * temperature*(Math.pow(windSpeed, 0.16)));
+    float windChill = (float) (13.12 + (0.6215 * temperature) - 11.37 * (Math.pow(windSpeed, 0.16)) + 0.3965 * temperature * (Math.pow(windSpeed, 0.16)));
     return windChill;
   }
 
@@ -28,4 +29,60 @@ public class Calculation {
     else return "Wind direction unknown";
   }
 
+  public static int getBeaufortScale(float windSpeed) {
+    if (windSpeed == 1) {
+      return 0;
+    } else if (windSpeed > 1 && windSpeed <= 5) {
+      return 1;
+    } else if (windSpeed > 5 && windSpeed <= 11) {
+      return 2;
+    } else if (windSpeed > 11 && windSpeed <= 19) {
+      return 3;
+    } else if (windSpeed > 19 && windSpeed <= 28) {
+      return 4;
+    } else if (windSpeed > 28 && windSpeed <= 38) {
+      return 5;
+    } else if (windSpeed > 38 && windSpeed <= 49) {
+      return 6;
+    } else if (windSpeed > 49 && windSpeed <= 61) {
+      return 7;
+    } else if (windSpeed > 61 && windSpeed <= 74) {
+      return 8;
+    } else if (windSpeed > 74 && windSpeed <= 88) {
+      return 9;
+    } else if (windSpeed > 88 && windSpeed <= 102) {
+      return 10;
+    } else if (windSpeed > 102 && windSpeed <= 117) {
+      return 11;
+    } else return -1;
+  }
+
+  //returns a user-friendly plain english description of the wind speed
+  public static String labelBeaufort(float windSpeed) {
+    if (windSpeed == 0) {
+      return "Calm";
+    } else if (windSpeed > 0 && windSpeed <= 5) {
+      return "Light Air";
+    } else if (windSpeed > 5 && windSpeed <= 11) {
+      return "Light Breeze";
+    } else if (windSpeed > 11 && windSpeed <= 19) {
+      return "Gentle Breeze";
+    } else if (windSpeed > 19 && windSpeed <= 28) {
+      return "Moderate Breeze";
+    } else if (windSpeed > 28 && windSpeed <= 38) {
+      return "Fresh Breeze";
+    } else if (windSpeed > 38 && windSpeed <= 49) {
+      return "Strong Breeze";
+    } else if (windSpeed > 49 && windSpeed <= 61) {
+      return "Near Gale";
+    } else if (windSpeed > 61 && windSpeed <= 74) {
+      return "Gale";
+    } else if (windSpeed > 74 && windSpeed <= 88) {
+      return "Severe Gale";
+    } else if (windSpeed > 88 && windSpeed <= 102) {
+      return "Strong Storm";
+    } else if (windSpeed > 102 && windSpeed <= 117) {
+      return "Violent Storm";
+    } else return "Wind speed out of range";
+  }
 }
