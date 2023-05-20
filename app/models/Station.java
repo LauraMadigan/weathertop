@@ -57,8 +57,7 @@ public class Station extends Model {
 
   public String labelWindDirection() {
     Reading reading = this.latestReading();
-    String windDirectionLabel = Calculation.labelWindDirection(reading.getWindDirection());
-    return windDirectionLabel;
+    return Calculation.labelWindDirection(reading.getWindDirection());
   }
 
   public int labelWindChill() {
