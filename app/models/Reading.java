@@ -94,7 +94,7 @@ public class Reading extends Model {
     return Icons.selectIconForWindDirection(windDirectionLabel);                          //looks up the icon for that direction
   }
 
-  public int getBeaufortScale(float windSpeed) {
+  public int getBeaufortScale() {
     return Calculation.getBeaufortScale(this.windSpeed);
   }
 
