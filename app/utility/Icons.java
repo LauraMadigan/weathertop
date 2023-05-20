@@ -1,6 +1,9 @@
 package utility;
 
+import models.Reading;
+
 import java.util.HashMap;
+import java.util.List;
 
 public class Icons {
 
@@ -61,4 +64,41 @@ public class Icons {
       return "fa-temperature-three-quarters"; // Default
     }
   }
+
+  public static String selectPressureArrowTrendIcon(List<Reading> readings) {
+    boolean descending = StationAnalytics.checkPressureDescending(readings);
+    boolean ascending = StationAnalytics.checkPressureAscending(readings);
+
+    if (descending) {
+      return "fa-solid fa-arrow-down";
+    } else if (ascending) {
+      return "fa-solid fa-arrow-up";
+    }
+    return "";
+  }
+
+  public static String selectTemperatureArrowTrendIcon(List<Reading> readings) {
+    boolean descending = StationAnalytics.checkTemperatureDescending(readings);
+    boolean ascending = StationAnalytics.checkTemperatureAscending(readings);
+
+    if (descending) {
+      return "fa-solid fa-arrow-down";
+    } else if (ascending) {
+      return "fa-solid fa-arrow-up";
+    }
+    return "";
+  }
+
+  public static String selectWindArrowTrend(List<Reading> readings) {
+    boolean descending = StationAnalytics.checkWindDescending(readings);
+    boolean ascending = StationAnalytics.checkWindAscending(readings);
+
+    if (descending) {
+      return "fa-solid fa-arrow-down";
+    } else if (ascending) {
+      return "fa-solid fa-arrow-up";
+    }
+    return "";
+  }
+
 }

@@ -8,6 +8,7 @@ import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
 import utility.Calculation;
+import utility.Icons;
 import utility.StationAnalytics;
 
 @Entity
@@ -98,40 +99,16 @@ public class Station extends Model {
     return readings.subList(startIndex, readings.size());
   }
 
-  public String selectWindArrowTrend() {
-    boolean descending = StationAnalytics.checkWindDescending(this.readings);
-    boolean ascending = StationAnalytics.checkWindAscending(this.readings);
-
-    if (descending) {
-      return "fa-solid fa-arrow-down";
-    } else if (ascending) {
-      return "fa-solid fa-arrow-up";
-    }
-    return "";
+  public String selectWindArrowTrendIcon() {
+    return Icons.selectWindArrowTrend(this.readings);
   }
 
-  public String selectTemperatureArrowTrend() {
-    boolean descending = StationAnalytics.checkTemperatureDescending(this.readings);
-    boolean ascending = StationAnalytics.checkTemperatureAscending(this.readings);
-
-    if (descending) {
-      return "fa-solid fa-arrow-down";
-    } else if (ascending) {
-      return "fa-solid fa-arrow-up";
-    }
-    return "";
+  public String selectTemperatureArrowTrendIcon() {
+    return Icons.selectTemperatureArrowTrendIcon(this.readings);
   }
 
-  public String selectPressureArrowTrend() {
-    boolean descending = StationAnalytics.checkPressureDescending(this.readings);
-    boolean ascending = StationAnalytics.checkPressureAscending(this.readings);
-
-    if (descending) {
-      return "fa-solid fa-arrow-down";
-    } else if (ascending) {
-      return "fa-solid fa-arrow-up";
-    }
-    return "";
+  public String selectPressureArrowTrendIcon() {
+    return Icons.selectPressureArrowTrendIcon(this.readings);
   }
 }
 
