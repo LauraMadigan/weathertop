@@ -16,6 +16,7 @@ POST    /authenticate                                 Accounts.authenticate
 GET     /logout                                       Accounts.logout
 GET     /profile                                      Accounts.getProfile
 POST    /profile/updateDetails                        Accounts.updateDetails
+POST    /profile/deleteProfile                        Accounts.deleteProfile
 GET     /about                                        About.index
 
 # Ignore favicon requests

@@ -57,6 +57,14 @@ public class Accounts extends Controller {
     render("profile.html", member);
   }
 
+  public static void deleteProfile() {
+    Logger.info("Deleting profile");
+    Member member = getLoggedInMember();
+    session.clear();
+    member.delete();
+    redirect("/");
+  }
+
   //  updates member details by reassigning the values that the user inputs
 //  to that member's fields, and then saves the updated model
   public static void updateDetails(String firstname, String lastname, String email, String password) {
