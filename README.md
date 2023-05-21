@@ -4,7 +4,7 @@
 * **Student Number**: 20104121
 * **Github URL**: https://github.com/LauraMadigan/weathertop
 * **Deploy URL**: http://app-a04bb8d7-01ef-4d30-b8ff-c51441efd7d4.cleverapps.io/
-* **YouTube URL**: XXXXXXXXXXXX
+* **YouTube URL**: https://www.youtube.com/watch?v=OfRsnGQn24U
 
 
 * Version: Release 3
@@ -31,6 +31,12 @@ User can edit their personal details.
 Ensure you have installed the requirements below. With Play installed, and this repository checked out, to run the app run the following command:
 
 `play run`
+
+## Deploying the App
+
+Deploying via Clever Cloud:
+
+`git push clever -f main:master` (where main is whichever branch you want to deploy)
 
 ### Requirements
 * Play 1.6

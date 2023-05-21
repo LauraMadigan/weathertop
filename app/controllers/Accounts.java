@@ -59,10 +59,10 @@ public class Accounts extends Controller {
 
   public static void deleteProfile() {
     Logger.info("Deleting profile");
-    Member member = getLoggedInMember();
-    session.clear();
-    member.delete();
-    redirect("/");
+    Member member = getLoggedInMember();          //get the logged in member
+    session.clear();                              //clear their session
+    member.delete();                              //delete the member
+    redirect("/");                            //redirect to homepage
   }
 
   //  updates member details by reassigning the values that the user inputs

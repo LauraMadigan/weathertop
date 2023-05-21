@@ -90,7 +90,7 @@ public class Reading extends Model {
   }
 
   public String selectIconForWindDirection() {
-    String windDirectionLabel = Calculation.labelWindDirection(this.getWindDirection());  //returns string direction
+    String windDirectionLabel = Calculation.labelWindDirection(this.getWindDirection());  //returns string direction, ie NNW etc
     return Icons.selectIconForWindDirection(windDirectionLabel);                          //looks up the icon for that direction
   }
 
